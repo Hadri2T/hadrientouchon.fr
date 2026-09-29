@@ -10,7 +10,7 @@ HTML, CSS et un peu de JavaScript, sans framework. Le site est hébergé avec Gi
 
 ```
 index.html            ← page principale (français)
-en/                   ← version anglaise (à venir)
+en/index.html         ← version anglaise
 assets/
 ├── css/style.css     ← mise en page et couleurs
 ├── js/main.js        ← barre du haut + neige en fond
