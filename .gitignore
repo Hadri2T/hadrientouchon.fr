@@ -1,0 +1,12 @@
+# Fichiers de travail qui restent sur mon ordinateur (jamais publiés)
+Claude.md
+CLAUDE.md
+.claude/
+README-travail.md
+
+# Dossiers sources : les versions utilisées par le site sont copiées dans assets/
+Inspirations/
+Cv & Photo/
+
+# Fichiers système macOS
+.DS_Store

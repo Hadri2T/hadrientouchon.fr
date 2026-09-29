@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hadrien Touchon · Durabilité &amp; Data Science</title>
+  <meta name="description" content="Portfolio de Hadrien Touchon : chargé de projet durabilité et étudiant en master Data Science &amp; Machine Learning. Expériences, formation, projets et contact.">
+
+  <!-- Aperçu affiché quand le lien est partagé (LinkedIn, messageries…).
+       L'image utilise l'adresse finale du site : elle marchera une fois le domaine branché. -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hadrien Touchon · Durabilité &amp; Data Science">
+  <meta property="og:description" content="Chargé de projet durabilité et étudiant en master Data Science &amp; Machine Learning.">
+  <meta property="og:image" content="https://hadrientouchon.fr/assets/img/photo.jpg">
+
+  <!-- Icône de l'onglet : ma photo -->
+  <link rel="icon" href="assets/img/photo.jpg">
+
+  <!-- Police Inter (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Bibliothèque d'icônes : chaque icône est définie une fois ici,
+       puis réutilisée partout avec <svg><use href="#nom-icone"/></svg> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 16 16">
+      <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+    </symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>
+      </g>
+    </symbol>
+    <symbol id="i-download" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>
+      </g>
+    </symbol>
+    <symbol id="i-external" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 17 17 7"/><path d="M7 7h10v10"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- Fond animé : la neige est dessinée dans ce canvas par assets/js/main.js -->
+  <canvas id="snow" aria-hidden="true"></canvas>
+
+  <!-- =====================================================
+       BARRE DU HAUT : toujours visible pendant le défilement.
+       La photo, le nom et les icônes apparaissent une fois l'en-tête dépassé ;
+       le bouton langue et le bouton Contact sont toujours là.
+       ===================================================== -->
+  <header class="topbar">
+    <a class="topbar-id fade-on-scroll" href="#top">
+      <img src="assets/img/photo.jpg" alt="" width="32" height="32">
+      <span>Hadrien Touchon</span>
+    </a>
+    <nav class="topbar-actions" aria-label="Liens rapides">
+      <div class="topbar-icons fade-on-scroll">
+        <a class="icon-btn" href="https://github.com/Hadri2T" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg class="icon"><use href="#i-github"/></svg>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/hadrien-touchon/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg class="icon"><use href="#i-linkedin"/></svg>
+        </a>
+        <a class="icon-btn" href="assets/cv/CV-Hadrien-Touchon-FR.pdf" download aria-label="Télécharger mon CV">
+          <svg class="icon"><use href="#i-download"/></svg>
+        </a>
+      </div>
+      <!-- Lien vers la version anglaise (page à créer : en/index.html) -->
+      <a class="lang-switch" href="en/" hreflang="en" lang="en" aria-label="English version">EN</a>
+      <a class="btn btn-accent" href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- =====================================================
+         EN-TÊTE : photo, nom, titre et liens
+         ===================================================== -->
+    <section class="hero">
+      <img class="avatar" src="assets/img/photo.jpg" alt="Photo de Hadrien Touchon" width="120" height="120">
+      <div>
+        <h1>Hadrien Touchon</h1>
+        <p class="subtitle">Chargé de projet durabilité · Data Science &amp; Machine Learning</p>
+        <ul class="hero-links">
+          <li><a href="https://github.com/Hadri2T" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/hadrien-touchon/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
+          <li><a href="#contact"><svg class="icon"><use href="#i-mail"/></svg>Contact</a></li>
+          <li><a href="assets/cv/CV-Hadrien-Touchon-FR.pdf" download><svg class="icon"><use href="#i-download"/></svg>Télécharger mon CV</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PRÉSENTATION
+         ✏️ C'est ce bloc qu'il faut modifier pour adapter le site à tes objectifs :
+         le paragraphe et les étiquettes en dessous.
+         ===================================================== -->
+    <section class="card" id="presentation">
+      <h2 class="section-title">Présentation</h2>
+      <div class="pitch">
+        <p>
+          Diplômé de Sciences Po en International Business &amp; Sustainability, j’ai travaillé sur la durabilité
+          en entreprise chez Danone, EcoVadis et aujourd’hui Nature &amp; Découvertes. En parallèle, je me forme
+          à la data science pour mettre les données au service de la transition écologique : bilan carbone,
+          achats responsables, analyse d’impact.
+        </p>
+        <ul class="tags">
+          <li>Durabilité &amp; RSE</li>
+          <li>Data Science &amp; ML</li>
+          <li>Bilan carbone · CSRD</li>
+          <li>Français · Anglais bilingue</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         EXPÉRIENCES PROFESSIONNELLES
+         Chaque expérience est un bloc <article class="entry"> :
+         pour en ajouter une, copier-coller un bloc entier.
+         ===================================================== -->
+    <section class="card" id="experiences">
+      <h2 class="section-title">Expériences professionnelles</h2>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div>
+            <h3>Alternant chargé de projet durabilité</h3>
+            <p class="entry-org">Nature &amp; Découvertes</p>
+          </div>
+          <div class="entry-meta">
+            <span class="entry-date">Sept. 2025 – mars 2027</span>
+            <span class="entry-place">Paris, France</span>
+          </div>
+        </div>
+        <ul class="entry-list">
+          <li>Responsable des projets liés aux achats responsables, à la fin de vie des produits, aux éco-déclarations et à l’évaluation carbone.</li>
+          <li>Gestion et suivi de 25 critères d’achat durable sur 11 catégories de produits : collecte de données fournisseurs, traçabilité, analyse des tableaux de suivi.</li>
+          <li>Analyse de la fin de vie des produits, avec un focus sur l’exploitation et la visualisation des données.</li>
+          <li>Contribution au bilan carbone 2025 (CSRD) : collecte et analyse des données d’activité, mise à jour de l’outil de calcul, fiabilisation des indicateurs et recommandations de réduction.</li>
+        </ul>
+        <ul class="tags">
+          <li>Achats responsables</li><li>Bilan carbone</li><li>CSRD</li><li>Visualisation de données</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div>
+            <h3>Stagiaire en gestion des opérations</h3>
+            <p class="entry-org">EcoVadis</p>
+          </div>
+          <div class="entry-meta">
+            <span class="entry-date">Févr. – août 2024</span>
+            <span class="entry-place">Hong Kong</span>
+          </div>
+        </div>
+        <ul class="entry-list">
+          <li>Responsable de la stratégie « Go To Market » pour l’Asie-Pacifique et le Japon, avec un focus sur la Chine et l’Inde, et de l’expansion d’EcoVadis sur ces marchés.</li>
+          <li>Conception et déploiement d’un système d’entraide entre les équipes APJ, basé sur une cartographie des expertises issue d’entretiens avec les collaborateurs.</li>
+        </ul>
+        <ul class="tags">
+          <li>Go To Market</li><li>Asie-Pacifique</li><li>Organisation</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div>
+            <h3>Stagiaire, équipe globale durabilité de la division Eau</h3>
+            <p class="entry-org">Danone</p>
+          </div>
+          <div class="entry-meta">
+            <span class="entry-date">Janv. – juil. 2023</span>
+            <span class="entry-place">Paris, France</span>
+          </div>
+        </div>
+        <ul class="entry-list">
+          <li>Mise en œuvre de la stratégie de développement durable de Danone, « Danone Impact Journey », dans la division Eau.</li>
+          <li>Adaptation de cette stratégie aux 14 marques de Danone Water, avec la création d’un système de suivi des KPI commun à toutes les marques.</li>
+          <li>Rédaction d’un guide sur la mise en place de la collecte du plastique à l’échelle mondiale.</li>
+        </ul>
+        <ul class="tags">
+          <li>Stratégie RSE</li><li>Suivi de KPI</li><li>Économie circulaire</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div>
+            <h3>Stagiaire en marketing digital</h3>
+            <p class="entry-org">Ekwateur, fournisseur d’énergie renouvelable</p>
+          </div>
+          <div class="entry-meta">
+            <span class="entry-date">Juil. – déc. 2022</span>
+            <span class="entry-place">Paris, France</span>
+          </div>
+        </div>
+        <ul class="entry-list">
+          <li>Organisation d’un événement de live shopping, en lien avec plusieurs équipes.</li>
+          <li>Création de contenus sur l’énergie renouvelable et gestion du SEO et du SEA pour l’acquisition de clients.</li>
+        </ul>
+        <ul class="tags">
+          <li>SEO / SEA</li><li>Contenu digital</li><li>Événementiel</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div>
+            <h3>Capstone project</h3>
+            <p class="entry-org">Crush On, e-shop de mode circulaire</p>
+          </div>
+          <div class="entry-meta">
+            <span class="entry-date">Sept. 2021 – mai 2022</span>
+            <span class="entry-place">Paris, France</span>
+          </div>
+        </div>
+        <ul class="entry-list">
+          <li>Réalisation du premier rapport d’impact de l’entreprise.</li>
+        </ul>
+        <ul class="tags">
+          <li>Rapport d’impact</li><li>Mode circulaire</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- =====================================================
+         FORMATION
+         ===================================================== -->
+    <section class="card" id="formation">
+      <h2 class="section-title">Formation</h2>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div>
+            <h3>Master Data Science &amp; Machine Learning, en alternance</h3>
+            <p class="entry-org">OpenClassrooms</p>
+          </div>
+          <div class="entry-meta">
+            <span class="entry-date">2025 – 2027</span>
+            <span class="entry-place">Paris, France</span>
+          </div>
+        </div>
+        <p class="entry-desc">Formation approfondie en data science et machine learning, appliquée à des problématiques de durabilité.</p>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div>
+            <h3>Certification Data Science &amp; AI</h3>
+            <p class="entry-org">Le Wagon</p>
+          </div>
+          <div class="entry-meta">
+            <span class="entry-date">2025</span>
+            <span class="entry-place">Paris, France</span>
+          </div>
+        </div>
+        <p class="entry-desc">Bootcamp intensif de 2 mois : analyse de données, data science et machine learning.</p>
+        <ul class="tags">
+          <li>Python</li><li>SQL</li><li>Pandas</li><li>NumPy</li><li>Scikit-Learn</li><li>TensorFlow</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div>
+            <h3>Master in International Business and Sustainability</h3>
+            <p class="entry-org">Sciences Po Paris</p>
+          </div>
+          <div class="entry-meta">
+            <span class="entry-date">2021 – 2024</span>
+            <span class="entry-place">Paris, France</span>
+          </div>
+        </div>
+        <p class="entry-desc">Cours : Creating Sustainable Businesses, Building Sustainable Supply Chain, Doing Business in Emerging Markets.</p>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div>
+            <h3>Semestre d’échange</h3>
+            <p class="entry-org">City University of Hong Kong</p>
+          </div>
+          <div class="entry-meta">
+            <span class="entry-date">2021</span>
+            <span class="entry-place">Hong Kong</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <div>
+            <h3>Bachelor of Arts in Humanities</h3>
+            <p class="entry-org">Sciences Po Paris</p>
+          </div>
+          <div class="entry-meta">
+            <span class="entry-date">2018 – 2021</span>
+            <span class="entry-place">Paris, France</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- =====================================================
+         PROJETS
+         Chaque projet est un bloc <article class="project">.
+         Boutons possibles : « Voir le code » (lien GitHub) et/ou « Ouvrir l'app ».
+         ===================================================== -->
+    <section class="card" id="projets">
+      <h2 class="section-title">Projets</h2>
+
+      <h3 class="group-title">OpenClassrooms · Master Data Science &amp; ML</h3>
+
+      <article class="project">
+        <h4>BrainScanAI : détecter des tumeurs cérébrales avec peu d’étiquettes</h4>
+        <p class="project-meta">Projet 7 · Traitement d’images</p>
+        <p class="project-desc">Sur 1 500 IRM cérébrales, seules 100 sont annotées par des radiologues. L’enjeu : exploiter les images non étiquetées, par apprentissage semi-supervisé, pour faire mieux qu’un modèle entraîné sur les 100 annotations seules.</p>
+        <ul class="tags"><li>Python</li><li>Apprentissage semi-supervisé</li><li>Vision par ordinateur</li></ul>
+        <div class="project-actions">
+          <a class="btn btn-accent" href="https://github.com/Hadri2T/Projet_7" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>Voir le code</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h4>Futurisys : une API qui prédit les émissions de CO2</h4>
+        <p class="project-meta">Projet 5 · Mise en production</p>
+        <p class="project-desc">Déploiement du modèle du projet 3 sous forme d’API web : n’importe quelle application peut lui envoyer les caractéristiques d’un bâtiment et recevoir une estimation de ses émissions.</p>
+        <ul class="tags"><li>FastAPI</li><li>Docker</li><li>XGBoost</li><li>Hugging Face</li></ul>
+        <div class="project-actions">
+          <a class="btn btn-accent" href="https://touchon-futurisys-ml-api.hf.space/docs" target="_blank" rel="noopener"><svg class="icon"><use href="#i-external"/></svg>Ouvrir l’app</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h4>Émissions de CO2 des bâtiments de Seattle</h4>
+        <p class="project-meta">Projet 3 · Machine learning supervisé</p>
+        <p class="project-desc">Prédire la consommation d’énergie et les émissions de CO2 des bâtiments non résidentiels à partir de leurs caractéristiques (surface, usage, année de construction…), pour éviter des relevés coûteux et aider la ville à viser la neutralité carbone en 2050.</p>
+        <ul class="tags"><li>Python</li><li>Pandas</li><li>Scikit-Learn</li><li>XGBoost</li></ul>
+        <div class="project-actions">
+          <a class="btn btn-accent" href="https://github.com/Hadri2T/OpenClassroom_projet_3" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>Voir le code</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h4>Expansion internationale d’une entreprise d’éducation</h4>
+        <p class="project-meta">Projet 1 · Analyse exploratoire</p>
+        <p class="project-desc">Analyse des statistiques de la Banque mondiale sur l’éducation pour identifier les pays où l’entreprise Academy devrait s’implanter en priorité.</p>
+        <ul class="tags"><li>Python</li><li>Pandas</li><li>Analyse exploratoire</li></ul>
+        <div class="project-actions">
+          <a class="btn btn-accent" href="https://github.com/Hadri2T/OpenClassroom_projet_1" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>Voir le code</a>
+        </div>
+      </article>
+
+      <h3 class="group-title">Projets personnels</h3>
+
+      <article class="project">
+        <h4>Décathlon de Pantin</h4>
+        <p class="project-meta">Site web · Suivi en direct</p>
+        <p class="project-desc">Site de suivi en direct d’une rencontre d’athlétisme entre amis (5 épreuves, une vingtaine de participants), pensé pour être consulté sur téléphone pendant toute la journée.</p>
+        <ul class="tags"><li>JavaScript</li><li>HTML / CSS</li></ul>
+        <div class="project-actions">
+          <a class="btn btn-accent" href="https://github.com/Hadri2T/decathlon" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>Voir le code</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h4>Prépa marathon</h4>
+        <p class="project-meta">Programme Python</p>
+        <p class="project-desc">Un programme pour suivre mes séances d’entraînement (course, salle…) pendant la préparation de semi-marathons, marathons et ultras, avec un export en page HTML.</p>
+        <ul class="tags"><li>Python</li><li>HTML / CSS</li></ul>
+        <div class="project-actions">
+          <a class="btn btn-accent" href="https://github.com/Hadri2T/prepa_marathon" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg>Voir le code</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- =====================================================
+         COMPÉTENCES
+         ===================================================== -->
+    <section class="card" id="competences">
+      <h2 class="section-title">Compétences</h2>
+
+      <div class="skill-group">
+        <h3>Data &amp; Machine Learning</h3>
+        <ul class="tags">
+          <li>Python</li><li>SQL</li><li>Pandas</li><li>NumPy</li><li>Scikit-Learn</li><li>TensorFlow</li><li>XGBoost</li><li>FastAPI</li><li>Docker</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <h3>Durabilité &amp; RSE</h3>
+        <ul class="tags">
+          <li>Bilan carbone</li><li>CSRD</li><li>Achats responsables</li><li>Fin de vie des produits</li><li>Éco-déclarations</li><li>Animateur Fresque du Climat</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <h3>Outils</h3>
+        <ul class="tags">
+          <li>Git &amp; GitHub</li><li>Jupyter</li><li>Microsoft Office</li>
+        </ul>
+      </div>
+
+      <div class="skill-group">
+        <h3>Langues</h3>
+        <ul class="tags">
+          <li>Français : langue maternelle</li><li>Anglais : bilingue</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CENTRES D'INTÉRÊT
+         ===================================================== -->
+    <section class="card" id="interets">
+      <h2 class="section-title">Centres d’intérêt</h2>
+
+      <article class="entry">
+        <h3>Rugby</h3>
+        <p class="entry-desc">20 ans de pratique en France, aux États-Unis et à Hong Kong, dont plusieurs années comme capitaine.</p>
+      </article>
+
+      <article class="entry">
+        <h3>Course à pied</h3>
+        <p class="entry-desc">Préparation de semi-marathons, marathons et ultras.</p>
+      </article>
+
+      <article class="entry">
+        <h3>Bénévolat</h3>
+        <p class="entry-desc">Armée du Salut à Paris et actions à New York, de 2016 à 2023 : cours de français pour des demandeurs d’asile, préparation et distribution de repas pour les personnes dans le besoin, actions caritatives avec le Consulat de France à New York.</p>
+      </article>
+    </section>
+
+    <!-- =====================================================
+         CONTACT : c'est ici qu'amènent tous les boutons « Contact »
+         ===================================================== -->
+    <section class="card" id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p>Une opportunité, une question sur un projet ? N’hésitez pas à m’écrire.</p>
+      <div class="contact-actions">
+        <a class="btn btn-accent" href="mailto:htouchon@gmail.com"><svg class="icon"><use href="#i-mail"/></svg>htouchon@gmail.com</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/hadrien-touchon/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-linkedin"/></svg>LinkedIn</a>
+        <a class="btn btn-ghost" href="assets/cv/CV-Hadrien-Touchon-FR.pdf" download><svg class="icon"><use href="#i-download"/></svg>Télécharger mon CV</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>© 2026 Hadrien Touchon</footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
