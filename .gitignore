@@ -5,9 +5,10 @@ CLAUDE.md
 README-travail.md
 
 # Dossiers sources : les versions utilisées par le site sont copiées dans assets/
-Inspirations/
-Cv & Photo/
-Logos/
+# (le « / » au début = seulement le dossier à la racine du projet, pas assets/img/logos/)
+/Inspirations/
+/Cv & Photo/
+/Logos/
 
 # Fichiers système macOS
 .DS_Store

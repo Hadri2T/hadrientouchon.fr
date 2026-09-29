@@ -263,10 +263,6 @@ main {
 .pitch p { font-size: 1.05rem; }
 .pitch p + p { margin-top: 12px; }      /* espace entre les paragraphes */
 .pitch-goal { color: var(--accent); font-weight: 500; }  /* paragraphe « je recherche » en couleur */
-.pitch .tags li {
-  color: var(--accent);
-  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
-}
 
 /* =========================================================
    8. EXPÉRIENCES, FORMATION, INTÉRÊTS (même mise en forme)
@@ -316,15 +312,23 @@ main {
    Sur ordinateur : texte à gauche, bouton à droite.
    Sur mobile : le bouton passe sous le texte (voir section 11).
    ========================================================= */
+/* Sous-titres « OpenClassrooms » et « Projets personnels » :
+   en couleur d'accent, suivis d'un trait qui va jusqu'au bord de la carte */
 .group-title {
-  margin-bottom: 8px;
-  color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--accent);
+  font-size: 1.15rem;
+  font-weight: 700;
 }
-.project + .group-title { margin-top: 32px; }
+.group-title::after {
+  content: "";
+  flex: 1;                              /* le trait prend toute la place restante */
+  height: 1px;
+  background: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.project + .group-title { margin-top: 44px; }  /* bien séparer les deux groupes */
 
 .project {
   display: grid;
