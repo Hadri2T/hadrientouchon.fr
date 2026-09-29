@@ -261,6 +261,8 @@ main {
   border-radius: 10px;
 }
 .pitch p { font-size: 1.05rem; }
+.pitch p + p { margin-top: 12px; }      /* espace entre les paragraphes */
+.pitch-goal { color: var(--accent); font-weight: 500; }  /* paragraphe « je recherche » en couleur */
 .pitch .tags li {
   color: var(--accent);
   border-color: color-mix(in srgb, var(--accent) 35%, transparent);
@@ -289,6 +291,25 @@ main {
 .entry-list li::marker { color: var(--accent); }
 
 .entry-desc { margin-top: 8px; color: var(--text-soft); }
+
+/* Entrée avec logo : le logo dans une colonne à gauche, tout le reste à droite */
+.with-logo {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  column-gap: 16px;
+}
+.with-logo > * { grid-column: 2; }
+
+.entry-logo {
+  grid-column: 1;
+  grid-row: 1;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  background: #fff;                           /* pastille blanche derrière le logo */
+  border-radius: 10px;                        /* coins arrondis */
+  box-shadow: 0 0 0 1px var(--card-border);   /* fin contour, utile pour les logos sur fond sombre */
+}
 
 /* =========================================================
    9. PROJETS
@@ -371,6 +392,14 @@ footer {
   .entry-meta { text-align: left; }
   .entry-date, .entry-place { display: inline; }
   .entry-place::before { content: " · "; font-style: normal; }
+
+  /* Logo un peu plus petit ; le logo reste à côté du titre,
+     mais les listes et descriptions reprennent toute la largeur */
+  .with-logo { grid-template-columns: 40px 1fr; column-gap: 12px; }
+  .entry-logo { width: 40px; height: 40px; border-radius: 8px; }
+  .with-logo > .entry-list,
+  .with-logo > .entry-desc,
+  .with-logo > .tags { grid-column: 1 / -1; }
 
   /* Projets : le bouton passe sous le texte */
   .project { grid-template-columns: 1fr; }
